@@ -1,0 +1,32 @@
+name: web-app
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      # Inert placeholders, never real credentials. next build constructs the
+      # libSQL client at module load during page-data collection
+      # (db/client.ts), so it needs a syntactically valid URL -- but the
+      # routes are dynamic, so no query ever executes at build time and
+      # these values never make a real connection.
+      TURSO_DATABASE_URL: "libsql://ci-placeholder"
+      TURSO_AUTH_TOKEN: "ci-placeholder"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # .nvmrc is the project's Node pin -- CI runs what developers run.
+          node-version-file: ".nvmrc"
+          cache: npm
+      - run: npm ci
+      # tokens:check compares the committed token copy with ../../design-system only where that
+      # folder exists; here it only checks the copy is present (the note in the log says so).
+      - run: npm run verify:full

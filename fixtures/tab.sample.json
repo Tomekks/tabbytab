@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "title": "Fixture",
+  "tuning": [40, 45, 50, 55, 59, 64],
+  "tempoBpm": 96,
+  "notes": [
+    { "string": 5, "fret": 3, "startTimeSec": 2.5, "durationSec": 0.5 },
+    { "string": 4, "fret": 0, "startTimeSec": 1.0, "durationSec": 0.5 },
+    { "string": 3, "fret": 2, "startTimeSec": 1.0, "durationSec": 0.5 },
+    { "string": 2, "fret": 5, "startTimeSec": 1.0000001, "durationSec": 0.5 },
+    { "string": 0, "fret": 7, "startTimeSec": 29.9, "durationSec": 0.1 },
+    { "string": 1, "fret": 1, "startTimeSec": 30.0, "durationSec": 0.1 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "tempoBpm": 96,
+  "tuning": [40, 45, 50, 55, 59, 64],
+  "steps": [
+    { "index": 0, "startTimeSec": 1.0, "notes": [{ "string": 4, "fret": 0 }, { "string": 3, "fret": 2 }] },
+    { "index": 1, "startTimeSec": 1.0000001, "notes": [{ "string": 2, "fret": 5 }] },
+    { "index": 2, "startTimeSec": 2.5, "notes": [{ "string": 5, "fret": 3 }] },
+    { "index": 3, "startTimeSec": 29.9, "notes": [{ "string": 0, "fret": 7 }] }
+  ]
+}

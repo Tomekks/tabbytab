@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Blocks a commit that stages something secret-shaped, or whose staged changes fail `npm run verify`
+# (typecheck, lint, unit tests, token copy and songs shape checks). Enable once per clone (not committed
+# automatically, on purpose):
+#   git config core.hooksPath .githooks
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "pre-commit: scanning staged changes for likely secrets..."
+STAGED_DIFF="$(git diff --cached -U0 -- . ':!*.lock' ':!package-lock.json' ':!.githooks/pre-commit')"
+
+# Heuristic patterns for common secret shapes -- a second line of defense,
+# not a replacement for never pasting a real credential into chat.
+PATTERN='sk-ant-[A-Za-z0-9_-]{10,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{20,}|(api|auth|secret|access)[_-]?(key|token)[[:space:]]*[:=][[:space:]]*[\"'\''"]?[A-Za-z0-9_-]{16,}'
+
+if echo "$STAGED_DIFF" | grep -Ei "$PATTERN" > /dev/null 2>&1; then
+  echo ""
+  echo "BLOCKED: a staged change looks like it contains a secret (API key/token-shaped string)."
+  echo "  Real credential -> unstage it (git restore --staged <file>), and rotate it if it was pasted anywhere else."
+  echo "  False positive -> commit once with --no-verify, and mention it so the pattern gets tightened."
+  exit 1
+fi
+
+if [ -d node_modules ]; then
+  echo "pre-commit: verify..."
+  VOUT="$(mktemp)"
+  if ! npm run verify --silent >"$VOUT" 2>&1; then
+    cat "$VOUT"; rm -f "$VOUT"
+    echo ""
+    echo "BLOCKED: 'npm run verify' failed for the staged changes. Fix it, then commit again."
+    exit 1
+  fi
+  tail -n 4 "$VOUT"; rm -f "$VOUT"
+fi
+
+echo "pre-commit: OK"

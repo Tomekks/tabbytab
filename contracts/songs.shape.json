@@ -1,0 +1,16 @@
+{
+  "table": "songs",
+  "owner": "web-app (Drizzle schema creates the table); audio-processing writes it from s05_publish",
+  "columns": [
+    {"name": "id", "type": "TEXT", "notNull": true, "primaryKey": true, "note": "stable id from the title (artist added if two songs share a title)"},
+    {"name": "title", "type": "TEXT", "notNull": true},
+    {"name": "artist", "type": "TEXT", "notNull": false},
+    {"name": "tempo_bpm", "type": "REAL", "notNull": true},
+    {"name": "tuning", "type": "TEXT", "notNull": true, "note": "JSON array of MIDI numbers"},
+    {"name": "notes", "type": "TEXT", "notNull": true, "note": "JSON array, tab.schema.json notes"},
+    {"name": "created_at", "type": "INTEGER", "notNull": true, "note": "unix seconds"},
+    {"name": "cover_art_url", "type": "TEXT", "notNull": false},
+    {"name": "spotify_artist", "type": "TEXT", "notNull": false},
+    {"name": "spotify_url", "type": "TEXT", "notNull": false}
+  ]
+}
