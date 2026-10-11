@@ -19,3 +19,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   to the app's read-only shape (today's clean result is specific to a read-only, no-auth app).
 - Stack versions and generated files: don't trust stale version notes; check `package.json` and lockfile.
 - Four npm-audit findings from `esbuild` via `drizzle-kit` are dev-tool-only; leave them, don't downgrade.
+
+## Ask first
+- Deleting or moving files or folders.
+- Changing `db/schema.ts`, `contracts/` or `fixtures/` (other projects keep copies).
+- Installing anything, or touching another project's repo.
+
+## Commits
+- Commit locally at meaningful points (`npm run verify` green, a piece of work done).
+- Stage named paths only, never `git add -A`. Message: `area: what changed`.
+- Pushing is blocked by settings. The owner pushes.

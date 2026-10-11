@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": ["Bash(git push *)"]
+  },
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "command": "${CLAUDE_PROJECT_DIR}/scripts/session-note.sh" } ] }
+    ]
+  }
+}
