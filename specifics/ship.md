@@ -1,4 +1,4 @@
-# web-app: 13 Ship (what differs)
+# web-app: Ship (what differs)
 
 - Deploys are the owner's step; auto-deploy is off. How: `status/deployment.md`.
 - Before asking to ship, run `npm run stage` (real build served on :3001) and have the owner look at it.
