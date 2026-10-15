@@ -6,7 +6,7 @@ Part of `status/`. Written in the old repo: `docs/…`, `app/…` and `archive/�
 
 - `npm run verify` = typecheck → lint → unit tests (`lib/`, `components/ui/`) → `tokens:check` (stale copy + `var(--x)` refs) → `songs-shape:check`. `verify:full` adds the production build.
 - `.github/workflows/ci.yml` runs `verify:full` on pull requests and pushes to `main` (inert Turso placeholders). `.github/dependabot.yml` is weekly npm. The pre-commit hook is in `.githooks/` (enable per clone: `git config core.hooksPath .githooks`).
-- Branch protection (a ruleset requiring the `verify` check and a PR) is deliberately off (owner decision 2026-10-10). `tabbytab` is private on a free plan and GitHub refuses rulesets there. Safety instead: the pre-commit hook runs `verify`, CI runs on PRs, deploys are manual. **Revisit when `tabbytab` goes public** (it replaces the old public repo): then the ruleset is free, and the agent should offer to turn it on.
+- Branch protection: GitHub ruleset `protect main` (id `25199070`), active since 2026-10-15 when `tabbytab` went public. It blocks force-pushes and deletion of `main` and requires the `verify` check, so changes go through a branch + PR (no owner bypass set). Before that it was off (owner decision 2026-10-10): the repo was private on a free plan, where GitHub refuses rulesets. Also in place: the pre-commit hook runs `verify`, CI runs on PRs, deploys are manual.
 - The `prebuild`/`predev`/`prestage` token hooks and the design-system package tests are gone (they moved to design-system). The history below describes the old repo.
 
 ## Done (2026-09-10) — Tier A
