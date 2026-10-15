@@ -1,6 +1,6 @@
 # Engineering practices — status toward "standard," not just "started"
 
-Part of `status/` — see `STATUS.md` for the index. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`. For *why* this exists at all (token-economy reasoning, what was cherry-picked from where), see `docs/decisions/0009-agent-workflow-tooling.md`.
+Part of `status/`. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`. For *why* this exists at all (token-economy reasoning, what was cherry-picked from where), see `docs/decisions/0009-agent-workflow-tooling.md`.
 
 ## Current state in this repo (2026-10-10)
 
@@ -45,7 +45,7 @@ The rule is set to `warn` rather than `error` specifically because of these — 
 - **PR template** — not created. Lowest-priority item; a nudge, not a gate.
 - **A fresh CodeScene audit scoped to `app/`** — last run 2026-09-09 against the whole repo; the integration itself was removed 2026-09-26 (fresh install planned for later). Worth re-running once reinstalled, to confirm nothing else has drifted.
 
-## Minor gaps noticed while building the above, not fixed (out of scope for this task, mentioned per `AGENTS.md`'s "don't touch pre-existing dead code" rule)
+## Minor gaps noticed while building the above, not fixed (out of scope for this task, per the "don't touch pre-existing dead code" rule)
 
 - `npm test` prints a Node warning: `app/package.json` has no `"type"` field, so `.ts` test files get reparsed as ES modules with a small performance cost. Real, but not part of Tier A.
 - `app/package.json`'s `@types/node` is pinned to `^20` while the actual runtime is Node 26 — a type-definitions/runtime version mismatch, not currently causing a visible problem.

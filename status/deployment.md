@@ -1,6 +1,6 @@
 # Deployment
 
-Part of `status/` — see `STATUS.md` for the index. Written for the new repo (2026-10-10); the old repo's history is in the archive repo `Music-tab-processor`.
+Part of `status/`. Written for the new repo (2026-10-10); the old repo's history is in the archive repo `Music-tab-processor`.
 
 **Project:** Vercel project `tabbytab` (account `tomsvarpinsgmailcoms-projects`), same Turso database as the old site. It exists but is **not connected to this repo yet**; connecting it, setting its env and the first deploy are the owner's switch-over steps (see the-system `APPROACH.md`, owner to-do). Nothing here has been deployed.
 

@@ -46,3 +46,8 @@ next-env.d.ts
 /playwright-report
 /blob-report
 /playwright/.cache
+
+# kept local only, not published
+/AGENTS.md
+/STATUS.md
+/CLAUDE.md

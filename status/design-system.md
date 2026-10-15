@@ -1,6 +1,6 @@
 # Design system
 
-Part of `status/` — see `STATUS.md` for the index.
+Part of `status/`.
 
 **The tokens, brands and the workbench live in `~/Projects/design-system`**, not here. This app keeps only:
 - `app/design-tokens.generated.css`, a committed copy of the default brand's CSS custom properties, imported by `app/globals.css`. `npm run tokens:check` fails if the copy is stale or if source uses a `var(--x)` it lacks.

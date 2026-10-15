@@ -1,6 +1,6 @@
 # Home page (`/`) — current state
 
-Part of `status/` — see `STATUS.md` for the index. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`.
+Part of `status/`. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`.
 
 Single-page UI: song-list sidebar + detail pane (Sheet/Fretboard/Ascii tabs, a
 metronome mounted across all three, Spotify-backed cover art/artist that

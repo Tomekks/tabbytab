@@ -1,6 +1,6 @@
 # Song views (Sheet, Fretboard, Ascii) and the metronome
 
-Part of `status/` — see `STATUS.md` for the index. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`. **This is current state only** — what's built, where the code lives, what's not built yet. The *why* behind each of these lives in `docs/decisions/0005-display-modes.md`; the exact rendering rules live in each component's own `RULES.md` — neither is repeated here.
+Part of `status/`. Written in the old repo: `docs/…`, `app/…` and `archive/…` paths below refer to the archive repo `Music-tab-processor`. **This is current state only** — what's built, where the code lives, what's not built yet. The *why* behind each of these lives in `docs/decisions/0005-display-modes.md`; the exact rendering rules live in each component's own `RULES.md` — neither is repeated here.
 
 **The song page is tabbed.** `app/_components/StudioTabs.tsx` (composition root; renders the
 diagram via `app/_components/DiagramViewport.tsx`), controls below the title/tuning header, tab order **Sheet, Fretboard, Ascii** (Sheet is the default), exactly one view rendered at a time. Tuning displays as note names (`E-A-D-G-B-e`), not raw MIDI numbers. Page width is fixed at `max-w-[1200px]` (with an explicit `w-full` alongside it — `max-width` alone doesn't reliably shrink on a narrower viewport) so switching tabs doesn't jump the page.
