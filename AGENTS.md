@@ -10,6 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # App rules
 
+- Workflow: this project follows `~/Projects/the-system` (start at its `NEXT.md`, steps in `steps/`). What differs here is in `specifics/<step>.md`.
 - **Design tokens only.** No hardcoded colors, sizes or spacing in app UI; use the design-system tokens.
 - **Verify:** `npm run verify` (typecheck, lint, unit tests, token copy and `songs` shape checks). Read the footer.
 - **Tokens come from design-system.** Never edit `app/design-tokens.generated.css`; change tokens in `~/Projects/design-system` and run `npm run sync` there.
